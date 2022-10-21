@@ -84,7 +84,7 @@ app.delete("/user/delete", (req, res) => {
     });
 });
 
-app.post("/user/update", (req, res) => {
+app.post("/user/update", async (req, res) => {
     console.log("Updating user", req.body.username);
 
     const username = req.body.username;
@@ -97,10 +97,12 @@ app.post("/user/update", (req, res) => {
         "category": req.body.category
     };
 
-    let success = User.findOneAndUpdate(filter, update, { new: true });
+    let success = await User.findOneAndUpdate(filter, update, { new: true });
 
-    if (success){
-        res.json({ "status": true, "data": user });
+    console.log(success);
+
+    if (success) {
+        res.json({ "status": true, "data": {} });
     } else {
         console.log("Error updating user.");
         res.json({ "status": false, "data": "Error updating user" });

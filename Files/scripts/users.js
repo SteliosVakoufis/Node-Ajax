@@ -1,7 +1,8 @@
 var username_to_change = "" // empty is for create and with data for update 
 // console.log(data);
 
-let url = "https://node-ajax-exercise-sev-opa.herokuapp.com/";
+let url = "https://node-ajax-exercise-sev-opa.herokuapp.com";
+// let url = "http://localhost:3000";
 
 $(document).ready(function () {
     getData();
@@ -86,7 +87,7 @@ $(document).ready(function () {
                     if (status) {
                         getData();
                         resetForm();
-                        alert(true, "Inserted user." + data.message);
+                        alert(true, "Inserted user.");
                     } else {
                         alert(false, "Can't insert user." + data.message)
                     }
