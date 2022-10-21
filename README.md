@@ -1,4 +1,4 @@
-# Node-Ajax\
+# Node-Ajax
 A web app as an exercise for SEV-OPA\
 \
 This application is using MongoDB for a database\
