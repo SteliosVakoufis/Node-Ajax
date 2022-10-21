@@ -1,6 +1,7 @@
-
 var username_to_change = "" // empty is for create and with data for update 
 // console.log(data);
+
+let url = "https://node-ajax-exercise-sev-opa.herokuapp.com/";
 
 $(document).ready(function () {
     getData();
@@ -9,7 +10,7 @@ $(document).ready(function () {
         let username = $(this).val();
 
         $.ajax({
-            url: 'http://localhost:3000/user/findOne' + '?' + $.param({ "username": username }),
+            url: url + '/user/findOne' + '?' + $.param({ "username": username }),
             type: 'get',
             dataType: 'JSON'
         })
@@ -38,7 +39,7 @@ $(document).ready(function () {
         let username = btnValue.val();
 
         $.ajax({
-            url: 'http://localhost:3000/user/delete' + '?' + $.param({ "username": username }),
+            url: url + '/user/delete' + '?' + $.param({ "username": username }),
             type: 'delete',
             dataType: 'JSON'
         })
@@ -73,7 +74,7 @@ $(document).ready(function () {
 
         if ($(".btnSubmit").val() === "insert") {
             $.ajax({
-                url: "http://localhost:3000/user/create/",
+                url: url + "/user/create/",
                 type: "get",
                 data: item,
                 dataType: "JSON"
@@ -92,7 +93,7 @@ $(document).ready(function () {
                 });
         } else if ($(".btnSubmit").val() === "modify") {
             $.ajax({
-                url: "http://localhost:3000/user/update",
+                url: url + "/user/update",
                 type: "post",
                 data: item,
                 dataType: "JSON"
@@ -116,7 +117,7 @@ $(document).ready(function () {
 
 function getData() {
     $.ajax({
-        url: 'http://localhost:3000/user/findAll',
+        url: url + '/user/findAll',
         type: 'get',
         dataType: 'JSON'
     })
